@@ -1,0 +1,10 @@
+rootProject.name = "next-be"
+
+def String[] modules = [
+        "core",
+        "dao",
+        "service",
+        "portal",
+        "admin"
+]
+include modules

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <appenders>
+        <!-- 定义控制台输出 -->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+        </Console>
+    </appenders>
+    <Loggers>
+        <!--全部日志-->
+        <Root level="info" additivity="false">
+            <appender-ref ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

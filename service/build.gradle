@@ -1,0 +1,14 @@
+configurations { compile.extendsFrom providedCompile }
+dependencies {
+    compile project(":dao")
+
+    // Testing
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
+    testCompile "org.hsqldb:hsqldb:$hsqldbVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
+
+    providedCompile "org.projectlombok:lombok:1.12.4"
+
+
+}

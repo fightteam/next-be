@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <properties>
+        <property name="LOG_HOME">logs</property>
+        <!-- 日志备份目录 -->
+        <property name="BACKUP_HOME">{LOG_HOME}/backup</property>
+        <property name="SERVER_NAME">next-admin</property>
+    </properties>
+    <appenders>
+        <!-- 每日志 -->
+        <RollingRandomAccessFile name="everyDayLog"
+                                 fileName="${LOG_HOME}/${SERVER_NAME}.log"
+                                 filePattern="${LOG_HOME}/${SERVER_NAME}.%d{yyyy-MM-dd}.log">
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <TimeBasedTriggeringPolicy interval="12"
+                                           modulate="true" />
+            </Policies>
+        </RollingRandomAccessFile>
+    </appenders>
+    <Loggers>
+        <!--全部日志-->
+        <Root level="info" additivity="false">
+            <appender-ref ref="everyDayLog"/>
+        </Root>
+    </Loggers>
+</Configuration>

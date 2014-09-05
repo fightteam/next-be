@@ -1,0 +1,23 @@
+
+###########
+# Gradle
+###########
+.gradle/
+build/
+target/
+
+###########
+# IDEA
+###########
+.idea/
+*.iml
+*.ipr
+*.iws
+
+###########
+# Eclipse
+###########
+.classpath
+.project
+bin/
+.settings/

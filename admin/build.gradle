@@ -1,0 +1,38 @@
+apply plugin: "war"
+
+dependencies {
+    compile project(":service")
+
+    providedCompile "javax.servlet:javax.servlet-api:3.0.1",
+            'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
+
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+
+    compile "org.springframework.hateoas:spring-hateoas:$springHateoasVersion"
+
+    providedCompile "org.projectlombok:lombok:1.12.4"
+
+    // Testing
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
+    testCompile "org.hsqldb:hsqldb:$hsqldbVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
+}
+// ==================================
+// 环境打包任务
+file("$projectDir/config").listFiles().each { File f ->
+    task ("${f.name}", dependsOn:["compileJava", "processResources", "classes"]){
+        description = "package war in ${f.name} environment"
+        doLast {
+            println ':copy'
+            copy{
+                from "${f}"
+                into "$buildDir/resources/main"
+                include "**/*"
+            }
+            println ':war'
+            war.execute();
+        }
+    }
+}

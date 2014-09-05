@@ -1,0 +1,23 @@
+configurations { compile.extendsFrom providedCompile }
+dependencies {
+
+    compile project(":core")
+
+
+    compile "org.springframework.data:spring-data-jpa:$springDataJpaVersion"
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+    compile "org.springframework.data:spring-data-redis:$springDataRedisVersion"
+    // spring orm
+    compile "org.springframework:spring-jdbc:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    providedCompile "org.projectlombok:lombok:1.12.4"
+
+    // Testing
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
+    testCompile "org.hsqldb:hsqldb:$hsqldbVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
+
+
+
+}
