@@ -12,11 +12,11 @@
                                  fileName="${LOG_HOME}/${SERVER_NAME}.log"
                                  filePattern="${LOG_HOME}/${SERVER_NAME}.%d{yyyy-MM-dd}.log">
             <PatternLayout
-                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n"/>
             <Policies>
-                <OnStartupTriggeringPolicy />
+                <OnStartupTriggeringPolicy/>
                 <TimeBasedTriggeringPolicy interval="12"
-                                           modulate="true" />
+                                           modulate="true"/>
             </Policies>
         </RollingRandomAccessFile>
     </appenders>

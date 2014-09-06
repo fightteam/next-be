@@ -8,10 +8,10 @@ ext {
 // 所有项目共同的配置
 // -----------------------
 configure(allprojects) {
-	apply plugin: "java"
-	apply from: "${gradleScriptDir}/ide.gradle"
+    apply plugin: "java"
+    apply from: "${gradleScriptDir}/ide.gradle"
 
-	// 项目构建JDK版本
+    // 项目构建JDK版本
     project.sourceCompatibility = 1.8
     project.targetCompatibility = 1.8
 
@@ -48,7 +48,7 @@ configure(allprojects) {
 // ----------------------
 // 主要是javadoc的生成
 configure(subprojects) { subproject ->
-	
+
 
     javadoc {
         options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PROTECTED
@@ -73,70 +73,69 @@ configure(subprojects) { subproject ->
     }
 }
 
-
 // 根项目配置
 // ---------------------
 // 主要是文档等的生成。
 configure(rootProject) {
-  	description = "Next Exporter"
+    description = "Next Exporter"
 
-  	// 根项目不生成jar
-	configurations.archives.artifacts.clear()
+    // 根项目不生成jar
+    configurations.archives.artifacts.clear()
 
 
-	task api(type: Javadoc) {
-	    group = "Documentation"
-	    description = "Generates aggregated Javadoc API documentation."
-	    title = "${rootProject.description} ${version} API"
+    task api(type: Javadoc) {
+        group = "Documentation"
+        description = "Generates aggregated Javadoc API documentation."
+        title = "${rootProject.description} ${version} API"
 
-	    options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PROTECTED
-	    options.author = true
-	    options.header = rootProject.description
-	    options.overview = "src/api/overview.html"
-	    options.splitIndex = true
-	    options.encoding = "UTF-8"
+        options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PROTECTED
+        options.author = true
+        options.header = rootProject.description
+        options.overview = "src/api/overview.html"
+        options.splitIndex = true
+        options.encoding = "UTF-8"
         options.locale = "en_US"
         options.linksOffline "http://docs.oracle.com/javase/7/docs/api/", "http://docs.oracle.com/javase/7/docs/api/"
-	    options.linksOffline "http://static.springsource.org/spring/docs/3.1.x/javadoc-api/", "http://static.springsource.org/spring/docs/3.1.x/javadoc-api/"
-	    options.linksOffline "http://static.springsource.org/spring-data/data-commons/docs/current/api/", "http://static.springsource.org/spring-data/data-commons/docs/current/api/"
+        options.linksOffline "http://static.springsource.org/spring/docs/3.1.x/javadoc-api/", "http://static.springsource.org/spring/docs/3.1.x/javadoc-api/"
+        options.linksOffline "http://static.springsource.org/spring-data/data-commons/docs/current/api/", "http://static.springsource.org/spring-data/data-commons/docs/current/api/"
         source subprojects.collect { project ->
-	      project.sourceSets.main.allJava
-	    }
+            project.sourceSets.main.allJava
+        }
 
-	    destinationDir = new File(buildDir, "api")
-	    classpath = files(subprojects.collect { project ->
-	      project.sourceSets.main.compileClasspath
+        destinationDir = new File(buildDir, "api")
+        classpath = files(subprojects.collect { project ->
+            project.sourceSets.main.compileClasspath
 
-	    })
-	    maxMemory = "1024m"
-	}
+        })
+        maxMemory = "1024m"
+    }
 
-	task docsZip(type: Zip) {
-	    group = "Distribution"
-	    baseName = "avalon"
-	    classifier = "docs"
-	    description = "Builds -${classifier} archive containing api and reference."
-	    from("src/dist") {
-			include "changelog.txt"
-			include "notice.txt"
-	    }
-	    from(api) {
-			into "api"
-	    }
-	    from("src/reference") {
-	    	into "reference"
-	    }
-	}
+    task docsZip(type: Zip) {
+        group = "Distribution"
+        baseName = "avalon"
+        classifier = "docs"
+        description = "Builds -${classifier} archive containing api and reference."
+        from("src/dist") {
+            include "changelog.txt"
+            include "notice.txt"
+        }
+        from(api) {
+            into "api"
+        }
+        from("src/reference") {
+            into "reference"
+        }
+    }
 
-	artifacts {
-		archives docsZip
-	}
+    artifacts {
+        archives docsZip
+    }
 
-	dependencies {
+    dependencies {
 
-	}
-	
+    }
+
 }
-task wrapper(type:Wrapper){
-	gradleVersion= '2.10'
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.10'
 }

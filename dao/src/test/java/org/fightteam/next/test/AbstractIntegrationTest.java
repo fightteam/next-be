@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 /**
  * 抽象初始化测试类
- *
+ * <p/>
  * 提供了一些初始化spring的方法，方便单元测试
  *
  * @author faith
@@ -36,7 +36,6 @@ public abstract class AbstractIntegrationTest {
             e.printStackTrace();
         }
     }
-
 
 
 }

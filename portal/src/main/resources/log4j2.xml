@@ -4,7 +4,7 @@
     <appenders>
         <!-- 定义控制台输出 -->
         <Console name="Console" target="SYSTEM_OUT" follow="true">
-            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n"/>
         </Console>
     </appenders>
     <Loggers>

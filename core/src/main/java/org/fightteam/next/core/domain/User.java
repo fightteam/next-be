@@ -2,10 +2,11 @@ package org.fightteam.next.core.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Type;
-import org.joda.time.DateTime;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 /**
  * 简单用户类

@@ -109,7 +109,7 @@ public class DataSourceConfig {
         }
 
         // 根据jdbc url判断dialect
-        if (jdbcUrl == null){
+        if (jdbcUrl == null) {
             throw new NullPointerException("jdbcUrl is null ");
         }
         if (jdbcUrl.contains(":h2:")) {

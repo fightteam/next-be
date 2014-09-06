@@ -1,4 +1,4 @@
-package org.fightteam.next.test;
+package org.fightteam.next.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +30,7 @@ import java.sql.SQLException;
 @EnableJpaRepositories(basePackages = "com.duobei.bab.repository")
 @EnableTransactionManagement
 public class DataSourceConfig {
-    private final static Logger log = LoggerFactory.getLogger(DataSourceConfig.class);
+    private final static Logger log = LoggerFactory.getLogger(ApplicationConfig.class);
 
     @Value("${database.envContextName}")
     private String envContextName;

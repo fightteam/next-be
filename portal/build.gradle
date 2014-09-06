@@ -23,11 +23,11 @@ dependencies {
 // ==================================
 // 环境打包任务
 file("$projectDir/config").listFiles().each { File f ->
-    task ("${f.name}", dependsOn:["compileJava", "processResources", "classes"]){
+    task("${f.name}", dependsOn: ["compileJava", "processResources", "classes"]) {
         description = "package war in ${f.name} environment"
         doLast {
             println ':copy'
-            copy{
+            copy {
                 from "${f}"
                 into "$buildDir/resources/main"
                 include "**/*"

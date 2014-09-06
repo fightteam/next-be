@@ -1,8 +1,8 @@
 package org.fightteam.next.test;
 
-import org.fightteam.next.config.WebSpringConfig;
 import org.fightteam.next.config.ApplicationConfig;
 import org.fightteam.next.config.DataSourceConfig;
+import org.fightteam.next.config.WebSpringConfig;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 /**
  * 抽象初始化测试类
- * <p>
+ * <p/>
  * 提供了测试rest的公共方法，方便reset api的单元测试
  *
  * @author faith
