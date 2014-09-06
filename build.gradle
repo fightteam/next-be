@@ -12,8 +12,8 @@ configure(allprojects) {
     apply from: "${gradleScriptDir}/ide.gradle"
 
     // 项目构建JDK版本
-    project.sourceCompatibility = 1.8
-    project.targetCompatibility = 1.8
+    project.sourceCompatibility = 1.7
+    project.targetCompatibility = 1.7
 
     // 编译参数
     [compileJava, compileTestJava]*.options*.compilerArgs = ["-Xlint:none", "-g"]
