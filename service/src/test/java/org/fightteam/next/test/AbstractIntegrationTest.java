@@ -20,7 +20,7 @@ import javax.sql.DataSource;
  * @since 0.0.1
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ApplicationConfig.class, org.fightteam.next.test.DataSourceConfig.class})
+@ContextConfiguration(classes = {ApplicationConfig.class, DataSourceConfig.class})
 @TransactionConfiguration(defaultRollback = true)
 public abstract class AbstractIntegrationTest {
 

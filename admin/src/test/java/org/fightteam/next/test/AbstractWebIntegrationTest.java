@@ -1,6 +1,8 @@
 package org.fightteam.next.test;
 
-import org.fightteam.next.web.controller.org.fightteam.next.config.WebSpringConfig;
+import org.fightteam.next.config.WebSpringConfig;
+import org.fightteam.next.config.ApplicationConfig;
+import org.fightteam.next.config.DataSourceConfig;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +23,10 @@ import org.springframework.web.context.WebApplicationContext;
  * @since 0.0.1
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ApplicationConfig.class, org.fightteam.next.test.DataSourceConfig.class, WebSpringConfig.class})
+@ContextConfiguration(classes = {ApplicationConfig.class, DataSourceConfig.class, WebSpringConfig.class})
 @TransactionConfiguration(defaultRollback = true)
 @WebAppConfiguration
-public class AbstractWebIntegrationTest extends AbstractIntegrationTest {
+public abstract class AbstractWebIntegrationTest{
     protected MockMvc mockMvc;
 
     @Autowired
